@@ -1,0 +1,104 @@
+<div class="login-div">
+  <div class="bg"></div>
+  <div class="panel shadow1">
+    <form #userLogin="ngForm" class="login-form">
+      <div class="panel-switch animated fadeIn">
+        <button type="button" id="sign_up" class="active-button">
+          Sign Up
+        </button>
+        <button type="button" id="log_in" class="" disabled>Log in</button>
+      </div>
+      <h1 class="animated fadeInUp animate1" id="title-login">
+        Welcome Back !
+      </h1>
+      <h1 class="animated fadeInUp animate1 hidden" id="title-signup">
+        Welcome !
+      </h1>
+      <fieldset id="login-fieldset">
+        <input
+          class="login animated fadeInUp animate2"
+          name="username"
+          type="textbox"
+          required
+          placeholder="Username"
+          ngModel
+          email
+          maxlength="50"
+          [(ngModel)]="loginObj.username"
+        />
+        <p class="invalid-input">
+          <span *ngIf="loginObj.username.invalid && loginObj.username.touched"
+            >Please enter a valid username</span
+          >
+        </p>
+        <input
+          class="login animated fadeInUp animate3"
+          name="password"
+          type="password"
+          required
+          placeholder="Password"
+          ngModel
+          minlength="2"
+          maxlength="20"
+          [(ngModel)]="loginObj.password"
+        />
+        <p class="invalid-input">
+          <span *ngIf="loginObj.password.invalid && loginObj.password.touched"
+            >Please enter a valid password of 2-20 character length</span
+          >
+        </p>
+      </fieldset>
+      <fieldset id="signup-fieldset" class="hidden">
+        <input
+          class="login animated fadeInUp animate2"
+          name="username"
+          type="textbox"
+          required
+          placeholder="Username"
+          ngModel
+          email
+          maxlength="50"
+          [(ngModel)]="signupObj.username"
+        />
+        <p class="invalid-input">
+          <span *ngIf="signupObj.username.invalid && signupObj.username.touched"
+            >Please enter a valid username</span
+          >
+        </p>
+        <input
+          class="login animated fadeInUp animate3"
+          name="password"
+          type="password"
+          placeholder="Choose password"
+          required
+          ngModel
+          minlength="2"
+          maxlength="20"
+          [(ngModel)]="signupObj.password"
+        />
+        <p class="invalid-input">
+          <span *ngIf="signupObj.password.invalid && signupObj.password.touched"
+            >Please enter a valid password of 2-20 character length</span
+          >
+        </p>
+      </fieldset>
+      <input
+        (click)="onLogin()"
+        [disabled]="userLogin.invalid"
+        type="submit"
+        id="login-form-submit"
+        class="login_form button animated fadeInUp animate4"
+        value="Log in"
+      />
+      <input
+        (click)="onSignUp()"
+        [disabled]="userLogin.invalid"
+        type="submit"
+        id="signup-form-submit"
+        class="login_form button animated fadeInUp animate4 hidden"
+        value="Sign up"
+      />
+      
+    </form>
+  </div>
+</div>

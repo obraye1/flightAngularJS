@@ -1,0 +1,47 @@
+<nav class="navbar">
+  <h1 class="logo">BriFlight</h1>
+
+  <button (click)="logOut()" class="logout-btn">Logout</button>
+</nav>
+
+
+
+<h1>Arrivals:</h1>
+<table>
+  <tr>
+    <th>ICAO address </th>
+    <th>Time of Arrivals</th>
+    <th>CallSign</th>
+    <th>ICAO code </th>
+  </tr>
+
+  <tbody>
+    <tr *ngFor="let flight of flights">
+      <td>{{ flight.icao24 }}</td>
+      <td>{{ flight.lastSeen }}</td>
+      <td>{{ flight.callsign }}</td>
+      <td>{{ flight.estDepartureAirport }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<h1>Departures:</h1>
+<table>
+  <tr>
+    <th>ICAO address </th>
+    <th>Time of Departure</th>
+    <th>Call Sign</th>
+    <th>ICAO code </th>
+  </tr>
+
+  <tbody>
+    <tr *ngFor="let flight of flights">
+      <td>{{ flight.icao24 }}</td>
+      <td>{{ flight.lastSeen }}</td>
+      <td>{{ flight.callsign }}</td>
+      <td>{{ flight.estArrivalAirport }}</td>
+    </tr>
+  </tbody>
+</table>
